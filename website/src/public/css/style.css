@@ -1,0 +1,171 @@
+:root {
+  --bg: #252b36;
+  --shadow-dark: #1b2029;
+  --shadow-light: #303847;
+  --primary: #ff9f43;
+  --text: #f1f5f9;
+  --muted: #aab4c5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: var(--bg);
+}
+
+/* Main Neumorphic Card */
+.container {
+  width: 100%;
+  max-width: 560px;
+
+  padding: 55px 40px;
+
+  border-radius: 30px;
+
+  background: var(--bg);
+
+  box-shadow:
+    12px 12px 24px var(--shadow-dark),
+    -12px -12px 24px var(--shadow-light);
+
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  box-shadow:
+    16px 16px 30px var(--shadow-dark),
+    -16px -16px 30px var(--shadow-light);
+
+  transform: translateY(-3px);
+}
+
+/* Heading */
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  color: var(--text);
+
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 750;
+
+  margin-bottom: 30px;
+}
+
+/* Visitor Label */
+.count {
+  color: var(--muted);
+
+  font-size: 19px;
+
+  margin-bottom: 25px;
+}
+
+/* Visitor Number */
+.number {
+  display: inline-block;
+
+  min-width: 180px;
+
+  padding: 12px 35px;
+
+  border-radius: 22px;
+
+  color: var(--primary);
+
+  font-size: clamp(60px, 10vw, 76px);
+  font-weight: 800;
+
+  background: var(--bg);
+
+  /* Inset Neumorphism */
+  box-shadow:
+    inset 6px 6px 12px var(--shadow-dark),
+    inset -6px -6px 12px var(--shadow-light);
+
+  line-height: 1.2;
+}
+
+/* Error Message */
+.error {
+  color: #ff6b6b;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 12px;
+
+  background: var(--bg);
+
+  box-shadow:
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 40px 20px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .count {
+    font-size: 16px;
+  }
+
+  .number {
+    min-width: 150px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    transition: none;
+  }
+
+  .container:hover {
+    transform: none;
+  }
+}
+
+/* Additional Information */
+.container-info {
+  margin-top: 30px;
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.container-info strong {
+  color: var(--primary);
+  font-family: monospace;
+  font-weight: 900;
+}

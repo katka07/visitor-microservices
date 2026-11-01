@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visitor Counter</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <% if (error) { %>
+      <h1>⚠️ Oops!</h1>
+      <p class="error">
+        <%= error %>
+      </p>
+      <% } else { %>
+        <h1>🎉 Welcome!</h1>
+        <p class="count">You are visitor number:</p>
+        <p class="number">
+          <%= count %>
+        </p>
+        <% } %>
+          <div class="container-info">
+            <p>Served by: <strong>
+                <%= hostname %>
+              </strong></p>
+          </div>
+  </div>
+</body>
+
+</html>

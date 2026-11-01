@@ -1,0 +1,43 @@
+services:
+  # Storage service
+  storage-service:
+    build:
+      context: ./storage-service
+      dockerfile: Dockerfile.storage
+    env_file:
+      - ./storage-service/.env
+    ports:
+      - 5000:5000
+    container_name: storage-container
+    networks:
+      - visitor-network
+
+  # Counter Service
+  counter-service:
+    build:
+      context: ./counter-service
+      dockerfile: Dockerfile.counter
+    env_file:
+      - ./counter-service/.env
+    ports:
+      - 4000:4000
+    container_name: counter-container
+    networks:
+      - visitor-network
+
+  # Website Service
+  website-service:
+    build:
+      context: ./website
+      dockerfile: Dockerfile.website
+    env_file:
+      - ./website/.env
+    ports:
+      - 3000:3000
+    container_name: website-container
+    networks:
+      - visitor-network
+
+networks:
+  visitor-network:
+    driver: bridge
